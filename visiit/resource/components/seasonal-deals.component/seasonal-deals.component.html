@@ -1,0 +1,7 @@
+<div id="season-deals"> <span ng-repeat="seasonTours in seasonctrl.seasonObj" ng-show="$index==0">
+    <p class="package-name">{{seasonTours.packageName}}</p>
+    <a href="/package/{{seasonTours.pkId}}">
+    <img  ng-src="http://www.visiit.com/uatres/images{{seasonTours.tinyUrlClean}}" />
+    </a>
+    <p class="tour-days">{{seasonTours.dayAndNight}}</p>
+        </span> </div>

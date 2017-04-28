@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<body>
+
+    <div ng-controller="ctrl">
+        <p>Url from data-service: {{ dataServiceUrl }}</p>
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+
+    <script type="text/javascript">
+        var myApp = angular.module('myApp', []); //http://jsfiddle.net/ysq3m/
+		myApp.factory('aProvider', function() {
+		   console.log("factory");
+		});
+
+		myApp.directive("test1", function() {
+			console.log("directive setup");
+			return {
+				compile: function() {console.log("directive compile");}
+			}
+		});
+
+		myApp.directive("test2", function() {
+			return {
+					link: function() {console.log("directive link");}
+			}
+		});
+
+		myApp.run(function() {
+			console.log("app run");
+		});
+
+		myApp.config( function() {
+			console.log("app config");
+		});
+
+		myApp.controller('myCtrl', function($scope) {
+			console.log("app controller");
+		});
+
+
+    </script>
+	<div ng-app="myApp" ng-controller="myCtrl">
+    <div test1 test2> </div>
+</div>
+</body>
+</html>

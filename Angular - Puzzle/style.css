@@ -1,0 +1,80 @@
+/* Styles go here */
+.middle {
+  width: 500px;
+  margin: 0 auto;
+}
+.row {
+  margin-top: 6%;
+  width: 100%;
+}
+.col-md-3 {
+  text-align: center;
+  padding: 0;
+  width: 24%;
+  cursor: pointer;
+  position: relative;
+}
+.grid {
+    height: 70px;
+    position: relative;
+    border: 1px solid #ccc;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+    width: 23%;
+    float: left;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    background: antiquewhite;
+}
+.card div {
+    /* display: block; */
+    height: 100%;
+    width: 100%;
+    /* line-height: 260px; */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    /* font-size: 140px; */
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+/*.card .front {
+  background: antiquewhite;
+}*/
+.card .back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.card.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.fa {
+  color: brown;
+}
+.matched {
+  cursor: not-allowed;
+  background-color: #e5e5e5;
+}
+

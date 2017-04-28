@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+     <div class="row" ng-controller="myController">
+       First name <input type="text" ng-model="fname"/>
+		<span ng-if="fname!='' && fname!=null">Last Name<input type="text" ng-model="lname"/></span>
+    </div>
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+    demo.controller("myController", function ($scope) {
+        
+    });
+</script>
+</body>
+</html>

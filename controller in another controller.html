@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+    <div class="row" ng-controller="myController1">
+	</div>
+	<div class="row" ng-controller="myController2">
+	</div>
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+    demo.controller("myController1", function ($scope) {
+        $scope.a = "a";
+    });
+	 demo.controller("myController2", function ($scope) {
+        $scope.b = "a";
+		console.log($scope.a);
+    });
+	
+	
+</script>
+</body>
+</html>

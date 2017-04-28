@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<body>
+
+    <div ng-controller="ctrl">
+        <p>Url from data-service: {{ dataServiceUrl }}</p>
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+
+        app.provider('dataService', function() {
+            var url = 'not configured';
+            return {
+                setBaseUrl: function(value) {
+                    url = value;
+                },
+                $get: function() {
+                return {
+                        getBaseUrl: function() {
+                            return url;
+                        }
+                    }
+                }
+            }
+
+        });
+        
+        app.config(function(dataServiceProvider){
+            dataServiceProvider.setBaseUrl('http://server/service/...');
+        });
+        
+        app.controller('ctrl', ['$scope', 'dataService', function($scope, dataService) {
+               $scope.dataServiceUrl = dataService.getBaseUrl();
+        }]);
+    </script>
+</body>
+</html>

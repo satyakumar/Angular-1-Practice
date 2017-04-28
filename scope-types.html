@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+   <div ng-app="movieApp">
+    <div ng-controller="movieController">
+        <h2>Movie: {{movie}}</h2>
+  Change Movie Title : <input type='text' ng-model='movie'/>
+        <movie-directive></movie-directive>
+    </div>
+</div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+
+    <script type="text/javascript">
+        var movieApp = angular.module("movieApp",[]);
+ 
+movieApp.controller("movieController",function($scope){
+    $scope.movie = "Ice Age";
+});
+movieApp.directive("movieDirective", function(){
+    return {
+        restrict: "E",
+        //scope: false,
+		scope: true,
+        template: "<div>Movie title : {{movie}}</div>"+
+        "Type a new movie title : <input type='text' ng-model='movie' />"
+    };
+});
+    </script>
+</body>
+</html>

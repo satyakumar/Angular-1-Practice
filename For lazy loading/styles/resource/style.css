@@ -1,0 +1,30 @@
+article {
+    border:1px solid pink;
+    margin:3%;
+    padding:3%;
+
+}
+article h2 {
+    background-color: aquamarine;
+    display: inline-block;
+    width: 3%;
+    text-align: center;
+    margin: 0;
+}
+article p {
+    background-color: blueviolet;
+    position: relative;
+    margin: 0;
+    left: 3%;
+    padding:2%;
+}
+span.popup-close {
+    display: inline-block;
+    cursor: pointer;
+    background: beige;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float: right;
+}

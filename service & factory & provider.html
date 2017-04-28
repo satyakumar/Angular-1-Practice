@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<body>
+
+    <div ng-controller="ctrl">
+        {{hellos}}
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+		app.controller("ctrl",["$scope","helloService","helloFactory","helloProvider",function($scope,helloService,helloFactory,helloProvider) {
+			$scope.hellos = [helloService.wish(),helloFactory.wish(),helloProvider.wish()];
+				
+			
+		}]);
+		app.service("helloService",function() {
+			this.message = "Hai";
+			this.wish = function() {
+				return "Hello World from service";
+			}
+		});
+		app.factory("helloFactory",function() {
+			var obj = {};
+			obj.message = "Hai";
+			obj.wish = function() {
+				return "Hello World factory";
+			}
+			return obj;
+		});
+		app.provider("helloProvider",function() {
+			this.name = "default";
+			this.setName = function(name) {
+				this.name = name;
+			};
+			this.$get = function() {
+				var name = this.name;
+				return {
+					wish: function() {
+						return "Hello "+name;
+					}
+				}
+			};
+			
+		});
+		app.config(function(helloProviderProvider) {
+			helloProviderProvider.setName("World - Proiver");
+		});
+        /* http://www.simplygoodcode.com/2015/11/the-difference-between-service-provider-and-factory-in-angularjs/
+				mod.provider("myProvider", function() {
+			this.value = "My Value";
+
+			this.setValue = function(newValue) {
+				this.value = newValue;
+			};
+
+			this.$get = function() {
+				return this.value;
+			};
+		});
+		*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://code.angularjs.org/1.3.0/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+     <div ng-controller="MyCtrl">
+    <div screen>
+        <div component>
+            <div widget>
+                <button ng-click="widgetIt()">Woo Hoo</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript"> //http://jsfiddle.net/mrajcok/bVWbN/
+   var myApp = angular.module('myApp',[])
+
+.directive('screen', function() {
+    return {
+        scope: true,
+        controller: function() {
+            this.doSomethingScreeny = function() {
+                alert("screeny!");
+            }
+        }
+    }
+})
+
+.directive('component', function() {
+    return {
+        scope: true,
+        require: '^screen',
+        controller: function($scope) {
+            this.componentFunction = function() {
+                $scope.screenCtrl.doSomethingScreeny();
+            }
+        },
+        link: function(scope, element, attrs, screenCtrl) {
+            scope.screenCtrl = screenCtrl
+        }
+    }
+})
+
+.directive('widget', function() {
+    return {
+        scope: true,
+        require: "^component",
+        link: function(scope, element, attrs, componentCtrl) {
+            scope.widgetIt = function() {
+                componentCtrl.componentFunction();
+            };
+        }
+    }
+})
+.controller("MyCtrl",function($scope) {
+	$scope.name = 'Superhero';
+});
+
+//myApp.directive('myDirective', function() {});
+//myApp.factory('myService', function() {});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+     <div class="row" ng-controller="myController">
+      <my-dir one-way="this is one way data binding variable" two-way="objVal" function-db="myhover();" function-db2="myclick(a);"></my-dir> <!-- two-way="obj = [{val: 'one'},{val: 'two'},{val: 'three'}]" -->
+    </div>
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+    demo.controller("myController", function ($scope) {
+       $scope.objVal =  [{val: 'one'},{val: 'two'},{val: 'three'}];
+	   $scope.myhover = function() {
+		console.log("hii");
+	   }
+	   $scope.myclick= function(val) {
+			console.log(val);
+	   }
+    });
+	demo.directive("myDir",function() {
+		return {
+			template: "<h1>@</h1><p>{{oneWay}}</p><h1>=</h1><p ng-repeat='v in twoWay'>{{v.val}}</p><h1>&</h1><p ng-mouseenter='functionDb();'>Hover  me</p><h1>&</h1><p ng-click='functionDb2({a:5});'>Click  me</p>",
+			scope: {
+				oneWay: "@",
+				twoWay: "=",
+				functionDb: "&",
+				functionDb2: "&",
+			}
+		}
+	});
+</script>
+</body>
+</html>

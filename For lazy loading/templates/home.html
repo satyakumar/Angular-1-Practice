@@ -1,0 +1,5 @@
+<h1>Home page</h1>
+<article ng-repeat="post in homeModel.posts">
+    <h2>{{post.id}}</h2>
+    <p ng-click="homeModel.postDetails(post.id,post.body)">{{post.body}}</p>
+</article>

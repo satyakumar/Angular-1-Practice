@@ -1,0 +1,14 @@
+<h3>Hot Deals...</h3> {{hotDeals.h}}
+<div id="hot-deals"> <span ng-repeat="deal_status in hotDeals.hot_deals" ng-show="$index==0" index="{{$index}}" ng-class="{'hot-deals-slider' :$index==0}"> <!-- ng-if="$index!=1 && $index!=10" -->
+    <p class="package-name">{{deal_status.packageName}}</p>
+    <a href="/package/{{deal_status.pkId}}">
+        <img ng-src="http://www.visiit.com/uatres/images{{deal_status.tinyUrlClean}}" />
+        </a>
+    <p class="tour-days">{{deal_status.dayAndNight}}</p>
+</span> <span ng-repeat="deal_status in hotDeals.hot_deals" ng-if="$index==4 || $index==5 || $index==6">
+        <p class="package-name">{{deal_status.packageName}}</p>
+        <a href="/package/{{deal_status.pkId}}">
+            <img ng-src="http://www.visiit.com/uatres/images{{deal_status.tinyUrlClean}}" />
+        </a>
+    <p class="tour-days">{{deal_status.dayAndNight}}</p>
+    </span> </div>

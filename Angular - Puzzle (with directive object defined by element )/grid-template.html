@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="col-md-3 grid" ng-repeat="i in icon track by $index"  index-val="{{$index}}">
+        <div class="card" ng-class="{flipped: flipClass}" ng-click="flip($index,i)">
+          <div class="front"></div>
+        <div class="back"><i class="fa fa-{{i}} fa-4x" aria-hidden="true"></i></div>
+        </div>
+      </div>
+</div>

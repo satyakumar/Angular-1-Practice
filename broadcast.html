@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+    <div class="row" ng-controller="myController1">
+	
+	</div>
+	<div class="row" ng-controller="myController2">
+	</div>
+	
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+	demo.service("myService",function() {
+		this.language = null;
+	});
+    demo.controller("myController1", function ($scope,$rootScope,myService) {
+        $scope.a = "a";
+		myService.language = "C1 lang";
+		$scope.language = "C1 lang";
+		/*$rootScope.$broadcast("changed",{
+			method1: "seding",
+		});*/
+		console.log($scope.language);
+    });
+	 demo.controller("myController2", function ($scope,$rootScope,myService) {
+        $scope.b = "a";
+		/*$rootScope.$on('changed',function(event,data) { console.log(data)
+			$scope.language = myService.language;
+			console.log(myService.language);
+		});*/
+		console.log(myService.language);
+    });
+	
+	
+</script>
+</body>
+</html>

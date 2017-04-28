@@ -1,0 +1,28 @@
+n<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+     <div class="row" ng-controller="myController">
+        <span class="col-md-3">
+            <span>Hide/Show</span>   <input type="checkbox" ng-model="isChecked" />
+        </span>
+        <div class="col-md-9" ng-show="isChecked">
+            <input type="text" style="width:300px;" class="form-control" />
+        </div>
+        <button ng-click="clickme();">Click Me</button>
+        <h2 ng-show="toggle">Toggle</h2>
+    </div>
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+    demo.controller("myController", function ($scope) {
+        $scope.isChecked = $scope.toggle = true;
+        $scope.clickme =  function() { 
+            $scope.toggle = !$scope.toggle;
+        };
+    });
+</script>
+</body>
+</html>

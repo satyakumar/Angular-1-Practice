@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#home-left {
+    width: 49%;
+    float:left;
+    margin-right: 2%;
+}
+#home-right {
+    width: 49%;
+    float:right;
+}
+#hot-deals {
+    width: 100%;
+    position: relative;
+}
+#hot-deals span {
+    display:inline-block;
+    width: 47%;
+    position: relative;
+    margin: 1%;
+}
+hot-deals {
+    width: 50%;
+}
+.hot-deals-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 5s ease-out;
+}
+hot-deals img {
+    width: 100%;
+    display: block;
+}
+.package-name {
+    position: absolute;
+    padding:2% 1%;
+    color:#FFF;
+    font-size:150%;
+}
+.tour-days {
+    position:absolute;
+    top: 75%;
+    background: beige;
+    width: 100%;
+    text-align: right;
+    padding: 3px;
+    color: #000;
+    font-size: 120%;
+}
+#season-deals {
+    width: 100%;
+    height: 109px;
+    position:relative;
+}
+#season-deals img {
+    width: 100%;
+    height: 264px;
+}
+#season-deals .tour-days {
+   top:200%;
+}

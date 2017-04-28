@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+</head>
+<body ng-app="Demo">
+     <div class="row" ng-controller="myController">
+		<my-dir></my-dir>
+    </div>
+<script type="text/javascript">
+    var demo = angular.module("Demo", []);
+    demo.controller("myController", function ($scope) {
+        $scope.a = "a";
+    });
+	demo.directive("myDir",function() {
+		return {
+			template: "<h1>Hai</h1>",
+			scope:true,
+			controller:function($scope) {
+				$scope.a = "a from directive controller";
+				console.log("scope from share directiive", $scope);
+			}
+		}
+	});
+</script>
+</body>
+</html>
